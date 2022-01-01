@@ -22,7 +22,6 @@ About:
 	used for encryption of photos.	
 '''
 
-
 from secure_client import secureClient
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad, unpad
@@ -33,16 +32,16 @@ import socket
 
 class secureServer:
 
-    def __init__(self, net_protocol=socket.AF_INET, transport_protocol=socket.SOCK_STREAM,
-                 blocksize=32):
-		'''
-		defaults are set to an IPv4 address, Stream-Socket(TCP).
-		Encryption Block-Size 32 (block encryption with AES)
-		'''
-        	self._server_socket = socket.socket(net_protocol, transport_protocol)
-        	self._public_key, self._private_key = rsa.newkeys(512)  # generating RSA public, private keys
-        	self._blocksize = blocksize
-        	self._aes = None
+    def __init__(self, net_protocol=socket.AF_INET, transport_protocol=socket.SOCK_STREAM, blocksize=32):
+        
+        #defaults are set to an IPv4 address, Stream-Socket(TCP).
+        #Encryption Block-Size 32 (block encryption with AES)
+        
+
+        self._server_socket = socket.socket(net_protocol, transport_protocol)
+        self._public_key, self._private_key = rsa.newkeys(512)  # generating RSA public, private keys
+        self._blocksize = blocksize
+        self._aes = None
 
     def bind(self, arguments):
         if type(arguments) not in (tuple, list):
@@ -58,15 +57,15 @@ class secureServer:
             raise ValueError("PORT value given is invalid %s is not 'int'." % port)
         self._server_socket.bind((ip, port))
 
-    def listen(self, clients):  
-	'''setting maximum client connection request queue length'''
-	
+    def listen(self, clients):
+        '''setting maximum client connection request queue length'''
+
         if type(clients) is not int:
             raise TypeError("argument must be of type 'str' not %s." % type(clients))
         self._server_socket.listen(clients)
 
-    def accept(self):  
-	'''establishing connection, getting AES symmetric key and returning secureClient() for further use'''
+    def accept(self):
+        '''establishing connection, getting AES symmetric key and returning secureClient() for further use'''
         try:
             client_socket, addr = self._server_socket.accept()
         except socket.error as e:
