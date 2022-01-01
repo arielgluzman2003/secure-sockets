@@ -39,10 +39,10 @@ class secureServer:
 		defaults are set to an IPv4 address, Stream-Socket(TCP).
 		Encryption Block-Size 32 (block encryption with AES)
 		'''
-        self._server_socket = socket.socket(net_protocol, transport_protocol)
-        self._public_key, self._private_key = rsa.newkeys(512)  # generating RSA public, private keys
-        self._blocksize = blocksize
-        self._aes = None
+        	self._server_socket = socket.socket(net_protocol, transport_protocol)
+        	self._public_key, self._private_key = rsa.newkeys(512)  # generating RSA public, private keys
+        	self._blocksize = blocksize
+        	self._aes = None
 
     def bind(self, arguments):
         if type(arguments) not in (tuple, list):
