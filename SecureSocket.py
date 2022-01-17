@@ -64,18 +64,18 @@ class SecureSocket:
 
         self._socket.bind((ip, port))  # Bind Socket to Address 'ip' and port 'port'
 
-    def listen(self, clients):
+    def listen(self, backlog):
 
         if not self._acceptor:
             raise SecureSocketException("Socket is not an 'Acceptor' type, cannot use function 'listen()'")
 
         '''
         setting maximum client connection request queue length
-        :param clients (int) - Number of maximum clients
+        :param backlog (int) - Number of maximum who can be accepted before server starts dropping requests
         '''
-        if type(clients) is not int:
-            raise TypeError("argument must be of type 'str' not %s." % type(clients))
-        self._socket.listen(clients)
+        if type(backlog) is not int:
+            raise TypeError("argument must be of type 'str' not %s." % type(backlog))
+        self._socket.listen(backlog)
 
     def accept(self):
         if not self._acceptor:
