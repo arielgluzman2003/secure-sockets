@@ -14,7 +14,7 @@ those take form in RSA and AES protocols.
 [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) protocol was implemented using [rsa](https://stuvel.eu/python-rsa-doc/) library,
 public key transfer used [pickle](https://docs.python.org/3/library/pickle.html#module-pickle) library to serialize a [_rsa.PublicKey_](https://stuvel.eu/python-rsa-doc/reference.html#rsa.PublicKey) object and distribute it.
 ### AES
-[AES]() protocol was implemented using [PycryptoDome]() library
+[AES](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard) protocol was implemented using [PycryptoDome](https://pycryptodome.readthedocs.io/en/latest/index.html) library
 
 
 ****Warning**: '_SecureSocket_' uses [Block Cipher Mode ECB](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#Electronic_codebook_(ECB)), which deficiency is encryption of pictures which remain somewhat visible post encryption[^2].
