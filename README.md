@@ -9,7 +9,7 @@ that remain far from the eye.
 
 ***SecureSocket*** integrates two concepts of [cryptography](https://www.kaspersky.com/resource-center/definitions/what-is-cryptography),
 Public-key cryptography and symmetric cryptography, </br>
-those take form in RSA and AES.
+those take form in RSA and AES protocols.
 ### RSA
 [RSA](https://en.wikipedia.org/wiki/RSA_(cryptosystem)) protocol was implemented using [rsa](https://stuvel.eu/python-rsa-doc/) library,
 public key transfer used [pickle](https://docs.python.org/3/library/pickle.html#module-pickle) library to serialize a [_rsa.PublicKey_](https://stuvel.eu/python-rsa-doc/reference.html#rsa.PublicKey) object and distribute it.
