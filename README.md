@@ -23,7 +23,7 @@ public key transfer used [pickle](https://docs.python.org/3/library/pickle.html#
 * bind([address ,port]) - Bind socket to to inteface at _address_ on port number _port_, executes [_socket.socket.bind()_ ](https://docs.python.org/3/library/socket.html#socket.socket.bind).
 * listen(backlog) - Enable a server to accept connections, executes [_socket.socket.listen()_](https://docs.python.org/3/library/socket.html#socket.socket.listen).
 * accept() - Accept a connection. returns a pair `(s,a)` where `s` is a connected SecureSocket and `a` is a tuple of address and port. executes [_socket.socket.accept()_](https://docs.python.org/3/library/socket.html#socket.socket.accept).
-* connect([address ,port]) - Connect to a remote socket at address 'address', port 'port', and set symmetric key. executes[_socket.socket.connect()_](https://docs.python.org/3/library/socket.html#socket.socket.connect).
+* connect([address ,port]) - Connect to a remote socket at address 'address', port 'port', and set symmetric key. executes [_socket.socket.connect()_](https://docs.python.org/3/library/socket.html#socket.socket.connect).
 * send(plaintext) - Encrypt _plaintext_ and sends to socket at other end, executes [_socket.socket.send()_](https://docs.python.org/3/library/socket.html#socket.socket.send).
 * recv() - Receives and decrypts and pending message, knows exact size using message formating [_socket.socket.recv()_](https://docs.python.org/3/library/socket.html#socket.socket.recv).
 * close() - Release related resources, executes [_socket.socket.close()_](https://docs.python.org/3/library/socket.html#socket.socket.close).
