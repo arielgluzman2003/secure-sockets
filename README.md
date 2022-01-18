@@ -7,7 +7,7 @@ that remain far from the eye.
 
 ## encryption
 
-***SecureSocket*** integrates concepts of [cryptography](https://www.kaspersky.com/resource-center/definitions/what-is-cryptography),
+***SecureSocket*** integrates two concepts of [cryptography](https://www.kaspersky.com/resource-center/definitions/what-is-cryptography),
 Public-key cryptography and symmetric cryptography, </br>
 those take form in RSA and AES.
 ### RSA
