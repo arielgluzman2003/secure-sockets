@@ -18,6 +18,7 @@ in large will be closer to its concepts.
 previous version should be found at https://github.com/arielgluzman2003/secure-sockets at an early branch
 '''
 import socket
+from typing import Optional
 from Crypto.Util.Padding import pad, unpad
 from Crypto.Random import get_random_bytes as generate_key
 from Crypto.Cipher import AES
@@ -163,8 +164,17 @@ class SecureSocket:
         new_socket._aes = aes_object
         new_socket._acceptor = False
         return new_socket
+    
+    def gettimeout(self) -> Optional[float]:
+        return self._socket.gettimeout()
 
+    def settimeout(self, value: Optional[float]):
+        self._socket.settimeout(value)
 
+    def setblocking(self, flag: bool):
+        self._socket.setblocking(flag)
+
+        
 class SecureSocketException(Exception):
     '''
     Raised When an Exception Regarding SecureSocket's Occurs
