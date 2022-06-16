@@ -1,9 +1,10 @@
-'''
+"""
 secure-sockets v2.0
 
 Author: Ariel Gluzman
 Date: January 17th 2022
-'''
+"""
+
 import socket
 from typing import Optional
 from Crypto.Util.Padding import pad, unpad
