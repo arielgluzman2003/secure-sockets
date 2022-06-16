@@ -141,8 +141,8 @@ class SecureSocket:
             length = str(len(message))  # max 9 characters
             len_of_length = str(len(length))  # max 1 character
             self._socket.send((len_of_length + length).encode() + self._aes.encrypt(message))
-        except socket.error:
-            raise SecureSocketException("Error Receiving Message")
+        except socket.error as e:
+            raise SecureSocketException("Error Receiving Message" + str(e))
 
     def recv(self):
         if self._acceptor:
@@ -151,9 +151,12 @@ class SecureSocket:
         :return: plain-text byte array
         gets length of length-of-data, length-of-data, and data.
         '''
-        len_of_length = int(self._socket.recv(1).decode())
-        length = int(self._socket.recv(len_of_length).decode())
-        return unpad(self._aes.decrypt(self._socket.recv(length)), self._blocksize)
+        try:
+            len_of_length = int(self._socket.recv(1).decode())
+            length = int(self._socket.recv(len_of_length).decode())
+            return unpad(self._aes.decrypt(self._socket.recv(length)), self._blocksize)
+        except socket.error as e:
+            raise SecureSocketException("Error Receiving Message" + str(e))
 
     def close(self):
         self._socket.close()
