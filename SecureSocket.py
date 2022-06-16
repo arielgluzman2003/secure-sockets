@@ -23,7 +23,7 @@ def _construct(copy_socket, aes_object):
 
 class SecureSocket:
 
-    def __init__(self, family=socket.AF_INET, socktype=socket.SOCK_STREAM, blocksize=32):
+    def __init__(self, family=socket.AF_INET, socktype=socket.SOCK_STREAM, blocksize=32, address_reuse=True):
         self._address_family = family
         self._socket_type = socktype
         self._aes = None
@@ -33,7 +33,9 @@ class SecureSocket:
         self._public_key = None
         self._acceptor = -1
         self._socket = socket.socket(family, socktype)
-
+        if address_reuse:
+            self._socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+        
     def bind(self, arguments):
         if int(self._acceptor) == -1:  # Socket orientation not yet defined, used at first call.
             self._acceptor = True
